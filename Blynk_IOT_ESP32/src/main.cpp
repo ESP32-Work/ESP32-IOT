@@ -1,14 +1,14 @@
 #include <WiFi.h>
 #include "BlynkSimpleEsp32.h"
 
-#define BLYNK_TEMPLATE_ID "TMPL6Yu1fQsET"
-#define BLYNK_TEMPLATE_NAME "Quickstart Template"
-#define BLYNK_AUTH_TOKEN "Egap8p1lhEpvWfrH81rxC1cfZhElBNKp"
+#define BLYNK_TEMPLATE_ID ""
+#define BLYNK_TEMPLATE_NAME " "
+#define BLYNK_AUTH_TOKEN ""
 
 BlynkTimer timer;
 // WiFi credentials
-const char *ssid = "Nayatel_2.4G";
-const char *password = "Ismail@123";
+const char *ssid = "";
+const char *password = "";
 
 // Blynk authentication token
 char auth[] = BLYNK_AUTH_TOKEN;

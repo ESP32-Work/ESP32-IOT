@@ -1,3 +1,5 @@
 ESP32_InfluxDB
 ESP32_Telegram
-ESP32_Whatsapp
+
+.vscode
+log
