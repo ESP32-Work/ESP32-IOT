@@ -1,6 +1,6 @@
-#include <WiFi.h>    
 #include <HTTPClient.h>
 #include <UrlEncode.h>
+#include <WiFi.h>
 
 const char *ssid = "";
 const char *password = "";
@@ -10,22 +10,22 @@ const char *password = "";
 String phoneNumber = "";
 String apiKey = "";
 
-void sendMessage(String message){
+void sendMessage(String message) {
 
   // Data to send with HTTP POST
-  String url = "https://api.callmebot.com/whatsapp.php?phone=" + phoneNumber + "&apikey=" + apiKey + "&text=" + urlEncode(message);    
+  String url = "https://api.callmebot.com/whatsapp.php?phone=" + phoneNumber +
+               "&apikey=" + apiKey + "&text=" + urlEncode(message);
   HTTPClient http;
   http.begin(url);
 
   // Specify content-type header
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  
+
   // Send HTTP POST request
   int httpResponseCode = http.POST(url);
-  if (httpResponseCode == 200){
+  if (httpResponseCode == 200) {
     Serial.print("Message sent successfully");
-  }
-  else{
+  } else {
     Serial.println("Error sending the message");
     Serial.print("HTTP response code: ");
     Serial.println(httpResponseCode);
@@ -40,7 +40,7 @@ void setup() {
 
   WiFi.begin(ssid, password);
   Serial.println("Connecting");
-  while(WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
@@ -52,6 +52,4 @@ void setup() {
   sendMessage("Hello from ESP32!");
 }
 
-void loop() {
-  
-}
+void loop() {}
