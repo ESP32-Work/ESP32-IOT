@@ -15,7 +15,6 @@ This project is a WiFi Radar System built using an ESP32 microcontroller. It sca
   - [Different Style Implementation](#different-style-implementation)
   - [Advanced Implementation](#advanced-implementation)
   - [Added Structure Implementation](#added-structure-implementation)
-- Images
 - Contributing
 - License
 
@@ -78,7 +77,7 @@ readme.md
 
 ### Simple Implementation
 
-The simple.ino file provides a basic implementation of the WiFi Radar System. It includes a simple web interface with a radar view and a network list.
+The [simple.ino](include/examples/simple.ino) file provides a basic implementation of the WiFi Radar System. It includes a simple web interface with a radar view and a network list.
 
 ```cpp
 #include <WiFi.h>
@@ -155,7 +154,7 @@ void loop() {
 
 ### Added Structure Implementation
 
-The [added structure.ino](src/added%20structure.ino) file provides an implementation with a structured approach to organizing network data and visualizing it.
+The [added structure.ino](include/examples/added%20structure.ino) file provides an implementation with a structured approach to organizing network data and visualizing it.
 
 ```cpp
 #include <WiFi.h>
@@ -393,7 +392,7 @@ void loop() {
 
 ### Advanced Implementation
 
-The advanced.ino file provides an advanced implementation with additional features such as analytics charts and detailed network statistics.
+The [advanced.ino](include/examples/advanced.ino) file provides an advanced implementation with additional features such as analytics charts and detailed network statistics.
 
 ```cpp
 #include <WiFi.h>
@@ -518,7 +517,7 @@ void loop() {
 
 ### Different with Radar Implementation
 
-The [different with radar.ino](src/different%20with%20radar.ino) file provides an implementation with a radar view and additional network information.
+The [different with radar.ino](include/examples/different%20with%20radar.ino) file provides an implementation with a radar view and additional network information.
 
 ```cpp
 #include <WiFi.h>
@@ -634,7 +633,7 @@ void loop() {
 ![image](images/different.png)
 ### Different Style Implementation
 
-The [different style.ino](src/different%20style.ino) file provides an implementation with a different visual style for the web interface.
+The [different style.ino](include/examples/different%20style.ino) file provides an implementation with a different visual style for the web interface.
 
 ```cpp
 #include <WiFi.h>
