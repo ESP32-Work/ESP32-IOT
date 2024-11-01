@@ -1,3 +1,4 @@
+
 # ESP32-IOT Projects Overview
 
 Welcome to the ESP32-IOT Projects repository! This collection showcases various projects leveraging the ESP32 microcontroller for diverse IoT applications. Each project highlights unique functionalities and integrations with external services and libraries.
@@ -36,6 +37,10 @@ Create a simple remote control system using ESP-NOW with the ESP32. This project
 
 Build a WiFi Radar System with the ESP32. This project scans for nearby WiFi networks, collects information about them, and visualizes the data in various formats.
 
+### 9. WiFi_Spamming_ESP32
+
+An educational project for understanding WiFi beacon frames. This project demonstrates the creation and transmission of WiFi beacon frames using an ESP32 microcontroller. It simulates multiple WiFi networks by broadcasting customizable beacon frames, providing insights into WiFi protocols and network behavior.
+
 ## License
 
 This repository is open-source and available under the MIT License.
@@ -47,4 +52,3 @@ Contributions are welcome! Feel free to open a pull request or issue.
 ## Contact
 
 For any questions or issues, please open an issue on the respective project's GitHub page.
-
