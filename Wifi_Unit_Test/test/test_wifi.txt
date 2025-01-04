@@ -1,0 +1,74 @@
+#include <Arduino.h>
+#include <unity.h>
+#include "wifi.h"
+
+// Mock functions and variables
+bool mockWiFiConnected = false;
+String mockSSID = "";
+String mockPassword = "";
+
+void mockWiFiBegin(const char* ssid, const char* password) {
+    mockSSID = ssid;
+    mockPassword = password;
+    mockWiFiConnected = true;
+}
+
+int mockWiFiStatus() {
+    return mockWiFiConnected ? WL_CONNECTED : WL_DISCONNECTED;
+}
+
+void mockWiFiOnEvent(WiFiEvent_t event) {
+    handleWiFiEvent(event);
+}
+
+void setUp(void) {
+    // Set up mock functions
+    WiFi.begin = mockWiFiBegin;
+    WiFi.status = mockWiFiStatus;
+    WiFi.onEvent = mockWiFiOnEvent;
+}
+
+void tearDown(void) {
+    // Clean up after each test
+    mockWiFiConnected = false;
+    mockSSID = "";
+    mockPassword = "";
+}
+
+void test_connectToWiFi(void) {
+    connectToWiFi();
+    TEST_ASSERT_EQUAL_STRING(WIFI_SSID, mockSSID.c_str());
+    TEST_ASSERT_EQUAL_STRING(WIFI_PASSWORD, mockPassword.c_str());
+    TEST_ASSERT_TRUE(mockWiFiConnected);
+}
+
+void test_reconnectWiFi(void) {
+    mockWiFiConnected = false;
+    reconnectWiFi();
+    TEST_ASSERT_TRUE(mockWiFiConnected);
+}
+
+void test_handleWiFiEvent_connected(void) {
+    mockWiFiConnected = false;
+    handleWiFiEvent(SYSTEM_EVENT_STA_GOT_IP);
+    TEST_ASSERT_TRUE(mockWiFiConnected);
+}
+
+void test_handleWiFiEvent_disconnected(void) {
+    mockWiFiConnected = true;
+    handleWiFiEvent(SYSTEM_EVENT_STA_DISCONNECTED);
+    TEST_ASSERT_FALSE(mockWiFiConnected);
+}
+
+void setup() {
+    UNITY_BEGIN();
+    RUN_TEST(test_connectToWiFi);
+    RUN_TEST(test_reconnectWiFi);
+    RUN_TEST(test_handleWiFiEvent_connected);
+    RUN_TEST(test_handleWiFiEvent_disconnected);
+    UNITY_END();
+}
+
+void loop() {
+    // Empty loop
+}

@@ -1,0 +1,13 @@
+#include <Arduino.h>
+#include "wifi.h"
+
+void setup() {
+  Serial.begin(115200);
+  setupWiFi();
+
+}
+
+void loop() {
+  reconnectWiFi();
+  // put your main code here, to run repeatedly:
+}
