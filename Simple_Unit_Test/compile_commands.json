@@ -1,0 +1,8 @@
+[
+    {
+        "command": "/usr/bin/g++ -o .pio/build/native/src/main.o -c -DPLATFORMIO=60116 -Iinclude -Isrc src/main.cpp",
+        "directory": "/home/ibrahim/ESP32-IOT/Simple_Unit_Test",
+        "file": "src/main.cpp",
+        "output": ".pio/build/native/src/main.o"
+    }
+]
