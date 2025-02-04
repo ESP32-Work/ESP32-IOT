@@ -1,4 +1,5 @@
 .vscode
 log
 .pio
+venv
 Simple_Remote_Control_System_espnow
