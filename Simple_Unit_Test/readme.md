@@ -1,7 +1,32 @@
-- this code is a simple example of how to use unity framework for testing cpp code
-- when use the native env be sure to not have setup and loop in test code just a main
-- as the device is not available in the native env and we are emulating the device
-- the code is being run on desktop so it will need to be like a normal cpp code
+Collecting workspace information# Simple Unit Test Project
+
+This project demonstrates how to use the Unity framework for testing C++ and embedded code on the ESP32 microcontroller. It includes examples of unit tests for both native and ESP32 environments.
+
+## Overview
+
+The project contains two main parts:
+1. **Native Environment**: Unit tests run on a desktop environment, emulating the device.
+2. **ESP32 Environment**: Unit tests run on the actual ESP32 hardware.
+
+## Project Structure
+
+```
+.gitignore
+.pio/
+.vscode/
+include/
+lib/
+src/
+test/
+platformio.ini
+readme.md
+```
+
+## Native Environment
+
+In the native environment, the tests are run on a desktop, and the code is written like standard C++ code without the `setup` and `loop` functions.
+
+### Example Code
 
 ```cpp
 #include <unity.h>
@@ -28,22 +53,19 @@ int main() {
     return 0;
 }
 ```
-```ini
 
+### PlatformIO Configuration
+
+```ini
 [env:native]
 platform = native
-
 ```
 
+## ESP32 Environment
 
+In the ESP32 environment, the tests are run on the actual ESP32 hardware, and the code includes the `setup` and `loop` functions.
 
-
-
-- this code is a simple example of how to use unity framework for testing embedded code
-- when use the esp32 env be sure to have setup and loop in test code
-- this is because the esp32 env is a real device and the code will be run on the device
-- the code is being run on the device so it will need to be like a normal arduino code
-- 
+### Example Code
 
 ```cpp
 #include <Arduino.h>
@@ -81,12 +103,28 @@ void loop() {
     // Not used for unit testing
 }
 ```
+
+### PlatformIO Configuration
+
 ```ini
 [env:ESP32_S3_DEV_4MB_QD_No_PSRAM]
 platform = espressif32
 board = ESP32_S3_DEV_4MB_QD_No_PSRAM
 framework = arduino
 test_build_src = true  ; Include the main project source in test builds
-monitor_speed = 115200         ; Serial monitor speed
+monitor_speed = 115200 ; Serial monitor speed
 test_ignore = test_native_main.cpp
 ```
+
+
+## License
+
+This project is open-source and available under the MIT License.
+
+## Contributing
+
+Contributions are welcome! Feel free to open a pull request or issue.
+
+## Contact
+
+For any questions or issues, please open an issue on the project's GitHub page.
