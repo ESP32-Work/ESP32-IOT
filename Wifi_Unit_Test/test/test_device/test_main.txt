@@ -1,6 +1,6 @@
 #include <unity.h>
 #include <Arduino.h>
-#include "wifi.h"
+#include "wifi_config.h"
 
 typedef void (*WiFiEventCb_t)(WiFiEvent_t);
 

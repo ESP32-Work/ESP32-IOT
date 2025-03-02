@@ -1,4 +1,4 @@
-#include "wifi.h"
+#include "wifi_config.h"
 
 void connectToWiFi() {
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
